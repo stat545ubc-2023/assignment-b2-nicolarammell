@@ -19,6 +19,12 @@
 #'
 #' @return A data frame or tibble with the levels of `group`, and the number of
 #' NAs within each level of `group` for all columns in `data` except `group`.
+#' @export
+#'
+#' @examples
+#' count_all_missing_by_group(airquality, Month)
+#' airquality |> count_all_missing_by_group(Month)
+#' count_all_missing_by_group(airquality, Month, .groups = "keep")
 #'
 count_all_missing_by_group <- function(data, group_col, .groups = "drop") {
 
@@ -28,7 +34,7 @@ count_all_missing_by_group <- function(data, group_col, .groups = "drop") {
     }
   }
 
-  data %>% group_by({{ group_col }}) %>%
-    summarize(across(everything(), ~sum(is.na(.x))),
+  data |> dplyr::group_by({{ group_col }}) |>
+    dplyr::summarize(dplyr::across(dplyr::everything(), ~sum(is.na(.x))),
               .groups = .groups)
 }
