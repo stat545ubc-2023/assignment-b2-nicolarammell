@@ -1,9 +1,25 @@
+---
+output: github_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # countr
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of `countr` is to make generating summary tables more
@@ -33,54 +49,29 @@ value counts.
 
 ## Examples
 
-For example, let’s see how to count up all the missing values in the
+For example, let's see how to count up all the missing values in the
 `airquality` dataset by the `Month` variable:
 
-``` r
+```{r example}
 # load the package
 library(countr)
 
 # run the function with the airquality dataset
 count_all_missing_by_group(airquality, Month) 
-#> # A tibble: 5 × 6
-#>   Month Ozone Solar.R  Wind  Temp   Day
-#>   <int> <int>   <int> <int> <int> <int>
-#> 1     5     5       4     0     0     0
-#> 2     6    21       0     0     0     0
-#> 3     7     5       0     0     0     0
-#> 4     8     5       3     0     0     0
-#> 5     9     1       0     0     0     0
 ```
 
 Alternatively, you could pipe your dataset directly into the function
 using the base R pipe, `|>`, or the magrittr pipe `%>%`:
 
-``` r
+```{r}
 # run the function using the pipe with the airquality dataset
 airquality |> count_all_missing_by_group(Month)
-#> # A tibble: 5 × 6
-#>   Month Ozone Solar.R  Wind  Temp   Day
-#>   <int> <int>   <int> <int> <int> <int>
-#> 1     5     5       4     0     0     0
-#> 2     6    21       0     0     0     0
-#> 3     7     5       0     0     0     0
-#> 4     8     5       3     0     0     0
-#> 5     9     1       0     0     0     0
 ```
 
 Finally, if you want your output tibble to remain grouped, specify the
 `.groups` argument:
 
-``` r
+```{r}
 # specify the .groups argument
 count_all_missing_by_group(airquality, Month, .groups = "keep")
-#> # A tibble: 5 × 6
-#> # Groups:   Month [5]
-#>   Month Ozone Solar.R  Wind  Temp   Day
-#>   <int> <int>   <int> <int> <int> <int>
-#> 1     5     5       4     0     0     0
-#> 2     6    21       0     0     0     0
-#> 3     7     5       0     0     0     0
-#> 4     8     5       3     0     0     0
-#> 5     9     1       0     0     0     0
 ```

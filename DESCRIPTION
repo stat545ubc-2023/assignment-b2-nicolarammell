@@ -1,11 +1,12 @@
 Package: countr
 Title: Count Values by Group
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Nicola", "Rammell", , "nicolarammell@gmail.com", role = c("aut", "cre"))
-Description: Convenience functions to make generating summary tables more efficient. 
-    Presently, this package contains a function to count missing values in columns by
-    group, outputting a summary tibble of NA value counts. 
+Description: This package makes generating summary tables more effiecient!   
+    It contains functions to help you save time in your exploratory data anaylsis.
+    Presently, the package contains a function to count up missing values by group,
+    outputting a summary tibble of missing value counts. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
