@@ -3,6 +3,8 @@
 
 # countr
 
+## Count Values by Group
+
 <!-- badges: start -->
 <!-- badges: end -->
 

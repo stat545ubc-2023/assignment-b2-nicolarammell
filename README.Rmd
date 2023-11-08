@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 
 # countr
 
+## Count Values by Group
+
 <!-- badges: start -->
 
 <!-- badges: end -->
